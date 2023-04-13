@@ -1,8 +1,10 @@
-package com.example.lasttermdemo3
+package com.example.lasttermdemo3.IntroActivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.lasttermdemo3.HomeActivity
+import com.example.lasttermdemo3.R
 import kotlinx.android.synthetic.main.activity_loading_scene.*
 
 class LoadingSceneActivity : AppCompatActivity() {

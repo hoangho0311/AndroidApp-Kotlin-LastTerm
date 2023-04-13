@@ -9,11 +9,25 @@ import com.example.lasttermdemo3.R
 import kotlinx.android.synthetic.main.product_items.view.*
 
 class ProductAdapter(private val ds:ArrayList<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+    private lateinit var mListener: onItemClickListener
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+    fun setOnItemClickListener(clickListener: onItemClickListener){
+        mListener = clickListener
+    }
+
+    class ViewHolder(itemView: View, clickListener: onItemClickListener): RecyclerView.ViewHolder(itemView){
+        init {
+            itemView.setOnClickListener {
+                clickListener.onItemClick(adapterPosition)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.product_items, parent, false)
-        return ViewHolder(itemView)
+        return ViewHolder(itemView, mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

@@ -7,13 +7,16 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.view.ViewCompat.animate
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lastterm.adapter.ProductAdapter
+import com.example.lasttermdemo3.ProductDetails.ProductDetailActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var dbRef : DatabaseReference
     private lateinit var ds:ArrayList<Product>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -55,13 +58,15 @@ class HomeActivity : AppCompatActivity() {
 //            Toast.makeText(this, "false", Toast.LENGTH_SHORT).show()
 //        }
 
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.setHasFixedSize(true)
-
+        recyclerView2.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView2.setHasFixedSize(true)
         ds = arrayListOf<Product>()
         GetProduct()
     }
 
+//    get product information product
     private fun GetProduct() {
         dbRef=FirebaseDatabase.getInstance().getReference("Products")
 
@@ -75,6 +80,15 @@ class HomeActivity : AppCompatActivity() {
                     }
                     val mAdapter = ProductAdapter(ds)
                     recyclerView.adapter = mAdapter
+                    recyclerView2.adapter = mAdapter
+
+//                    click show detail
+                    mAdapter.setOnItemClickListener(object : ProductAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent= Intent(this@HomeActivity, ProductDetailActivity::class.java)
+                            startActivity(intent)
+                        }
+                    })
                 }
             }
 

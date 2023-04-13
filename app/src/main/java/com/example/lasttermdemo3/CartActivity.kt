@@ -7,10 +7,6 @@ import android.view.View
 import com.example.lasttermdemo3.Fragment.CurrentOrderFragment
 import com.example.lasttermdemo3.Fragment.HistoryOrderFragment
 import kotlinx.android.synthetic.main.activity_cart.*
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_home.btnFavor
-import kotlinx.android.synthetic.main.activity_home.btnHome
-import kotlinx.android.synthetic.main.activity_home.btnProfile
 import kotlinx.android.synthetic.main.activity_home.loadingProgress
 
 class CartActivity : AppCompatActivity() {
@@ -53,18 +49,5 @@ class CartActivity : AppCompatActivity() {
             commit()
         }
 
-        currentOrderBtn.setOnClickListener {
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.frameLayout, sub1)
-                commit()
-            }
-        }
-
-        historyOrderBtn.setOnClickListener {
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.frameLayout, sub2)
-                commit()
-            }
-        }
     }
 }

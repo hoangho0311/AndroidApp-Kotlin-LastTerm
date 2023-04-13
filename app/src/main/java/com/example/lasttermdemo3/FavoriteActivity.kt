@@ -4,7 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AlphaAnimation
+import kotlinx.android.synthetic.main.activity_favorite.*
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_home.btnCart
+import kotlinx.android.synthetic.main.activity_home.btnHome
+import kotlinx.android.synthetic.main.activity_home.btnProfile
+import kotlinx.android.synthetic.main.activity_home.loadingProgress
 
 class FavoriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,5 +43,6 @@ class FavoriteActivity : AppCompatActivity() {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             }
         }
+
     }
 }
