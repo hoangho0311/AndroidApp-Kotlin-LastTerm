@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".IntroActivity.introActivity">
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView4"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="600dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="1.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.0"-->
-    <!--        app:srcCompat="@drawable/intro" />-->
-
-
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="80dp"
@@ -38,15 +25,19 @@
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/imageButton2"
-        tools:layout_editor_absoluteX="1dp"></LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introSliderViewPaper"></LinearLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/introSliderViewPaper"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:overScrollMode="never"
         android:layout_marginBottom="16dp"
+        android:overScrollMode="never"
         app:layout_constraintBottom_toTopOf="@+id/indicatorCointainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton

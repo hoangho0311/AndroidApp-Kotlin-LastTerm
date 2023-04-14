@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
+import com.example.lasttermdemo3.Login.SignUpActivity
 import com.example.lasttermdemo3.R
 import kotlinx.android.synthetic.main.activity_intro.*
 
@@ -35,13 +36,13 @@ class introActivity : AppCompatActivity() {
             if(introSliderViewPaper.currentItem+1<introSliderAdapter.itemCount){
                 introSliderViewPaper.currentItem+=1
             }else{
-                Intent(applicationContext, LoadingSceneActivity::class.java).also {
+                Intent(applicationContext, SignUpActivity::class.java).also {
                     startActivity(it)
                 }
             }
         }
         buttonSkip.setOnClickListener {
-            Intent(applicationContext, LoadingSceneActivity::class.java).also {
+            Intent(applicationContext, SignUpActivity::class.java).also {
                 startActivity(it)
             }
         }
@@ -50,7 +51,7 @@ class introActivity : AppCompatActivity() {
     private fun setupIndicators(){
         val indicators = arrayOfNulls<ImageView>(introSliderAdapter.itemCount)
         val layoutParams:LinearLayout.LayoutParams= LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-        layoutParams.setMargins(8,0,8,0)
+        layoutParams.setMargins(0,0,0,0)
         for(i in indicators.indices){
             indicators[i] = ImageView(applicationContext)
             indicators[i].apply {
