@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.lasttermdemo3.R
 import com.example.lasttermdemo3.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -20,9 +19,13 @@ class SignUpActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.signUpButton.setOnClickListener {
-            val email = binding.textView26.text.toString()
-            val password = binding.textView27.text.toString()
+        binding.signUpbtn.setOnClickListener {
+            val email = binding.emailInput.text.toString()
+            val password = binding.passInput.text.toString()
+            val confirmpass = binding.confirmpassInput.text.toString()
+            val username = binding.usernameInput.text.toString()
+
+            if(password == confirmpass)
 
             if(email.isNotEmpty() && password.isNotEmpty()){
                 firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
@@ -34,6 +37,16 @@ class SignUpActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+
+        binding.loginBtn.setOnClickListener{
+            val LoginIntent = Intent(this, LoginActivity::class.java)
+            startActivity(LoginIntent)
+        }
+
+        binding.forgotPassBtn.setOnClickListener {
+            val ForgotIntent = Intent(this, ForgotPassActivity::class.java)
+            startActivity(ForgotIntent)
         }
     }
 }

@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
+import com.example.lasttermdemo3.Login.LoginPhoneActivity
 import com.example.lasttermdemo3.Login.SignUpActivity
 import com.example.lasttermdemo3.R
 import kotlinx.android.synthetic.main.activity_intro.*
@@ -36,13 +37,13 @@ class introActivity : AppCompatActivity() {
             if(introSliderViewPaper.currentItem+1<introSliderAdapter.itemCount){
                 introSliderViewPaper.currentItem+=1
             }else{
-                Intent(applicationContext, SignUpActivity::class.java).also {
+                Intent(applicationContext, LoginPhoneActivity::class.java).also {
                     startActivity(it)
                 }
             }
         }
         buttonSkip.setOnClickListener {
-            Intent(applicationContext, SignUpActivity::class.java).also {
+            Intent(applicationContext, LoginPhoneActivity::class.java).also {
                 startActivity(it)
             }
         }
