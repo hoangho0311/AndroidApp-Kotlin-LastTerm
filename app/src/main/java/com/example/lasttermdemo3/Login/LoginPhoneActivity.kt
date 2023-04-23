@@ -87,7 +87,7 @@ class LoginPhoneActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    checkUserExist(binding.userphone.text.toString())
+                    checkUserExist("+84"+binding.userphone.text.toString())
                 } else {
                     dialog.dismiss()
                 }
@@ -108,7 +108,10 @@ class LoginPhoneActivity : AppCompatActivity() {
                         startActivity(Intent(this@LoginPhoneActivity, LoadingSceneActivity::class.java))
                         finish()
                     }else{
-                        startActivity(Intent(this@LoginPhoneActivity, SignUpPhoneActivity::class.java))
+                        val phone = binding.userphone.text.toString()
+                        val intent1 = Intent(this@LoginPhoneActivity, SignUpPhoneActivity::class.java)
+                        intent1.putExtra("phone", phone)
+                        startActivity(intent1)
                         finish()
                     }
                 }

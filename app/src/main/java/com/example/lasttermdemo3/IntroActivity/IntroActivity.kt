@@ -11,6 +11,7 @@ import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
 import com.example.lasttermdemo3.Login.LoginPhoneActivity
 import com.example.lasttermdemo3.Login.SignUpActivity
+import com.example.lasttermdemo3.MainActivity
 import com.example.lasttermdemo3.R
 import kotlinx.android.synthetic.main.activity_intro.*
 

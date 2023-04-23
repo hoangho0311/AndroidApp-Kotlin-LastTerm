@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.lasttermdemo3.HomeActivity
 import com.example.lasttermdemo3.IntroActivity.LoadingSceneActivity
 import com.example.lasttermdemo3.Model.UserModel
 import com.example.lasttermdemo3.R
@@ -72,11 +71,15 @@ class SignUpPhoneActivity : AppCompatActivity() {
         }
     }
 
-    private fun storeData(it: Uri?) {
+    private fun storeData(imageUrl: Uri?) {
+        val phone = intent.getStringExtra("phone")
+
         val data= UserModel(name= binding.userName.text.toString(),
             email= binding.userEmail.text.toString(),
             city = binding.userCity.text.toString(),
-            image= imageUri.toString(),)
+            image= imageUrl.toString(),
+            number = "+84"+phone,
+       )
 
         FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().currentUser!!.phoneNumber!!).setValue(data).addOnCompleteListener {
             hideDialog()

@@ -1,4 +1,4 @@
-package com.example.lasttermdemo3
+package com.example.lasttermdemo3.Model
 
 class Product(
     var prdID:String?=null,

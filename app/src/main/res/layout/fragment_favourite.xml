@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.HistoryOrderFragment"
-    android:background="#BDBDBD">
+    tools:context=".Fragment.FavouriteFragment">
 
-
-    <androidx.recyclerview.widget.RecyclerView
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/history_order_item"/>
+        android:text="Favou" />
+
 </FrameLayout>

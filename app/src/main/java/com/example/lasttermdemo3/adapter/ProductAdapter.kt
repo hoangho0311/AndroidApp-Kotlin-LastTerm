@@ -1,14 +1,13 @@
 package com.example.lastterm.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lasttermdemo3.Product
-import com.example.lasttermdemo3.R
-import kotlinx.android.synthetic.main.product_items.view.*
+import com.example.lasttermdemo3.Model.Product
+import com.example.lasttermdemo3.databinding.ProductItemsBinding
 
-class ProductAdapter(private val ds:ArrayList<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class ProductAdapter(val context: Context, val list: ArrayList<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
     private lateinit var mListener: onItemClickListener
     interface onItemClickListener{
         fun onItemClick(position: Int)
@@ -17,7 +16,7 @@ class ProductAdapter(private val ds:ArrayList<Product>): RecyclerView.Adapter<Pr
         mListener = clickListener
     }
 
-    class ViewHolder(itemView: View, clickListener: onItemClickListener): RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(val binding: ProductItemsBinding, clickListener: onItemClickListener): RecyclerView.ViewHolder(binding.root){
         init {
             itemView.setOnClickListener {
                 clickListener.onItemClick(adapterPosition)
@@ -26,20 +25,15 @@ class ProductAdapter(private val ds:ArrayList<Product>): RecyclerView.Adapter<Pr
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.product_items, parent, false)
-        return ViewHolder(itemView, mListener)
+        return ViewHolder(ProductItemsBinding.inflate(LayoutInflater.from(context), parent, false), mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.apply {
-            txtNameProduct.text = ds[position].prdName
-            txtDecription.text = ds[position].prdDescrip
-            txtPrice.text = ds[position].prdPrice
-            txtReview.text = ds[position].prdReview
-        }
+        holder.binding.txtNameProduct.text = list[position].prdName
     }
 
     override fun getItemCount(): Int {
-         return ds.size
+        return list.size
     }
+
 }

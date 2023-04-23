@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AlphaAnimation
-import com.example.lasttermdemo3.HomeActivity
 import com.example.lasttermdemo3.R
 import kotlinx.android.synthetic.main.activity_product_detail2.*
 
@@ -75,8 +74,8 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         back_btn.setOnClickListener{
-            val i = Intent(this, HomeActivity::class.java)
-            startActivity(i)
+//            val i = Intent(this, HomeActivity::class.java)
+//            startActivity(i)
         }
     }
 }
