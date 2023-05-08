@@ -104,11 +104,11 @@
                     android:layout_marginTop="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/userCity"
+                        android:id="@+id/userPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawablePadding="12dp"
-                        android:hint="City"
+                        android:hint="Phone"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 

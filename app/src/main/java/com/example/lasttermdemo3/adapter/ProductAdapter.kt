@@ -30,6 +30,8 @@ class ProductAdapter(val context: Context, val list: ArrayList<Product>): Recycl
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.txtNameProduct.text = list[position].prdName
+        holder.binding.txtPrice.text = list[position].prdPrice
+        holder.binding.txtDecription.text = list[position].prdDescrip
     }
 
     override fun getItemCount(): Int {

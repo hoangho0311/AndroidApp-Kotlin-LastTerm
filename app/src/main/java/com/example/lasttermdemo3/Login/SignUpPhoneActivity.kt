@@ -42,7 +42,7 @@ class SignUpPhoneActivity : AppCompatActivity() {
     }
 
     private fun validateData() {
-        if(binding.userName.text.toString().isEmpty()||binding.userEmail.text.toString().isEmpty()||binding.userCity.text.toString().isEmpty()||imageUri==null){
+        if(binding.userName.text.toString().isEmpty()||binding.userEmail.text.toString().isEmpty()||binding.userPhone.text.toString().isEmpty()||imageUri==null){
             Toast.makeText(this,"Please enter all fields", Toast.LENGTH_SHORT).show()
         }else if(!binding.termsCondition.isChecked){
             Toast.makeText(this,"Please accept terms and conditions", Toast.LENGTH_SHORT).show()
@@ -72,25 +72,23 @@ class SignUpPhoneActivity : AppCompatActivity() {
     }
 
     private fun storeData(imageUrl: Uri?) {
-        val phone = intent.getStringExtra("phone")
 
         val data= UserModel(name= binding.userName.text.toString(),
             email= binding.userEmail.text.toString(),
-            city = binding.userCity.text.toString(),
             image= imageUrl.toString(),
-            number = "+84"+phone,
+            number = binding.userPhone.text.toString(),
        )
 
-        FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().currentUser!!.phoneNumber!!).setValue(data).addOnCompleteListener {
-            hideDialog()
-            if(it.isSuccessful){
-                startActivity(Intent(this, LoadingSceneActivity::class.java))
-                finish()
-                Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()
-            }else
-            {
+        FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().currentUser!!.uid!!).setValue(data).addOnCompleteListener {
                 hideDialog()
+                if (it.isSuccessful) {
+                    startActivity(Intent(this, LoadingSceneActivity::class.java))
+                    finish()
+                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+                } else {
+                    hideDialog()
+                }
             }
-        }
+
     }
 }

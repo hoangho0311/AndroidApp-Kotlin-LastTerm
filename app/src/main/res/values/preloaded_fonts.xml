@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/allerta_stencil</item>
         <item>@font/average</item>
+        <item>@font/averia_libre</item>
         <item>@font/averia_libre_bold</item>
         <item>@font/bebas_neue</item>
         <item>@font/carrois_gothic</item>

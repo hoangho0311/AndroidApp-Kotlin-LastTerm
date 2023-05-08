@@ -7,65 +7,66 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.example.lastterm.adapter.ProductAdapter
 import com.example.lasttermdemo3.Model.Product
 import com.example.lasttermdemo3.ProductDetails.ProductDetailActivity
+import com.example.lasttermdemo3.adapter.ViewPaperAdapter
 import com.example.lasttermdemo3.databinding.FragmentHomeBinding
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.coroutines.Dispatchers.Main
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-
+    private lateinit var tabLayout: TabLayout
+    private lateinit var viewPager2: ViewPager2
+    private lateinit var adapter:ViewPaperAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
-        getData()
+        tabLayout = binding.TabLayout
+        viewPager2 = binding.Viewpaper
+
+        adapter = ViewPaperAdapter(childFragmentManager, lifecycle)
+
+        tabLayout.addTab(tabLayout.newTab().setText("All"))
+        tabLayout.addTab(tabLayout.newTab().setText("Nike"))
+
+        viewPager2.adapter=adapter
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if(tab!=null){
+                    viewPager2.currentItem=tab.position
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+        })
+        viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                tabLayout.selectTab(tabLayout.getTabAt((position)))
+            }
+        })
 
         return binding.root
     }
 
-    private fun getData() {
-        FirebaseDatabase.getInstance().getReference("Products").addValueEventListener(
-            object : ValueEventListener{
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    Log.d("ok","${snapshot.toString()}")
-
-                    if(snapshot.exists()){
-                        val list = arrayListOf<Product>()
-                        for (data in snapshot.children){
-                            val model = data.getValue(Product::class.java)
-                            list.add(model!!)
-                        }
-                        list.shuffle()
-                        val mAdapter = ProductAdapter(requireContext(),list)
-                        binding.recyclerView.adapter = mAdapter
-                        binding.recyclerView2.adapter = mAdapter
-
-                        mAdapter.setOnItemClickListener(object :ProductAdapter.onItemClickListener{
-                            override fun onItemClick(position: Int) {
-                                val intent = Intent (getActivity(), ProductDetailActivity::class.java)
-                                getActivity()?.startActivity(intent)
-                            }
-                        })
-                    }else
-                        Toast.makeText(requireContext(), "Fail", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-
-            }
-        )
-    }
 
 }

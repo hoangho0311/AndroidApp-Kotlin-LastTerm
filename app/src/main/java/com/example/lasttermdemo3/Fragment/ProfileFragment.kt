@@ -20,11 +20,10 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         config.showDialog(requireContext())
         binding = FragmentProfileBinding.inflate(layoutInflater)
 
-        FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().currentUser!!.phoneNumber!!).get().addOnSuccessListener {
+        FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().currentUser!!.uid!!).get().addOnSuccessListener {
             if(it.exists()){
                 val data= it.getValue(UserModel::class.java)
 

@@ -52,8 +52,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:scrollbars="none"
-            android:layout_height="wrap_content">
+            android:layout_height="700dp"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,8 +69,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="14dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="14dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -125,8 +125,7 @@
                             android:fontFamily="@font/bebas_neue"
                             android:text="Nike Air Max"
                             android:textColor="@color/black"
-                            android:textSize="30dp"
-                            />
+                            android:textSize="30dp" />
 
                         <TextView
                             android:id="@+id/textView18"
@@ -138,8 +137,7 @@
                             android:fontFamily="@font/carrois_gothic"
                             android:text="$290.00"
                             android:textColor="@color/black"
-                            android:textSize="18dp"
-                             />
+                            android:textSize="18dp" />
                     </RelativeLayout>
 
                     <TextView
@@ -154,8 +152,8 @@
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
-                        android:scrollbars="none"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -238,8 +236,8 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/textlines"
                         android:layout_marginTop="8dp"
+                        android:background="@drawable/textlines"
                         android:orientation="horizontal">
 
                         <TextView
@@ -353,7 +351,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginTop="5dp"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
