@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.lasttermdemo3.IntroActivity.LoadingSceneActivity
+import com.example.lasttermdemo3.Model.Product
 import com.example.lasttermdemo3.Model.UserModel
 import com.example.lasttermdemo3.R
 import com.example.lasttermdemo3.config
@@ -60,7 +61,6 @@ class SignUpPhoneActivity : AppCompatActivity() {
         storageRef.putFile(imageUri!!).addOnSuccessListener {
             storageRef.downloadUrl.addOnSuccessListener {
                 storeData(it)
-                Toast.makeText(this,"ok", Toast.LENGTH_SHORT).show()
 
             }.addOnFailureListener {
                 hideDialog()
@@ -74,7 +74,7 @@ class SignUpPhoneActivity : AppCompatActivity() {
     private fun storeData(imageUrl: Uri?) {
 
         val data= UserModel(name= binding.userName.text.toString(),
-            email= binding.userEmail.text.toString(),
+            city= binding.userEmail.text.toString(),
             image= imageUrl.toString(),
             number = binding.userPhone.text.toString(),
        )

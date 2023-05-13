@@ -12,18 +12,21 @@ import com.example.lasttermdemo3.config
 import com.example.lasttermdemo3.databinding.FragmentProfileBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
+    var databaseReference: DatabaseReference? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         config.showDialog(requireContext())
         binding = FragmentProfileBinding.inflate(layoutInflater)
-
-        FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().currentUser!!.uid!!).get().addOnSuccessListener {
+        databaseReference = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().currentUser!!.uid!!)
+        databaseReference!!.get().addOnSuccessListener {
             if(it.exists()){
                 val data= it.getValue(UserModel::class.java)
 

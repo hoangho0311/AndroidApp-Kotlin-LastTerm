@@ -5,5 +5,6 @@ class Product(
     var prdName:String?=null,
     var prdDescrip:String?=null,
     var prdPrice:String?=null,
-    var prdReview:String?=null,
+    var prdImage:String?=null,
+    var brand:String?=null,
 )

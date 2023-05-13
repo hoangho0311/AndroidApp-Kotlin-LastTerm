@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
@@ -13,10 +14,14 @@ import com.example.lasttermdemo3.Login.LoginActivity
 import com.example.lasttermdemo3.Login.LoginPhoneActivity
 import com.example.lasttermdemo3.Login.SignUpActivity
 import com.example.lasttermdemo3.MainActivity
+import com.example.lasttermdemo3.Model.Product
 import com.example.lasttermdemo3.R
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_intro.*
 
 class introActivity : AppCompatActivity() {
+    private lateinit var dbRef: DatabaseReference
     private val introSliderAdapter = IntroSliderAdapter(
         listOf(IntroSlide("SiuuuShop","alo", R.drawable.intro),IntroSlide("SiuuuShop","delivery", R.drawable.intro),
             IntroSlide("SiuuuShop","Refund", R.drawable.intro))
@@ -24,6 +29,26 @@ class introActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
+
+//        dbRef = FirebaseDatabase.getInstance().getReference("Products")
+//
+//        val empId = dbRef.push().key!!
+//        val employee = Product(empId, "AMIRI SKEL TOP LOW BLACK WHITE", "", "1,650,000đ"
+//            ,"https://firebasestorage.googleapis.com/v0/b/lasttermdemo2.appspot.com/o/products%2Famiri-skel-top-low-black-white.jpg?alt=media&token=886fc4ad-273d-4c53-88b1-1d73fd8be930","VANS")
+//
+//
+//        val empId2 = dbRef.push().key!!
+//        val employee2 = Product(empId, "AMIRI SKEL TOP LOW ORANGE", "", "1,650,000đ"
+//            ,"https://firebasestorage.googleapis.com/v0/b/lasttermdemo2.appspot.com/o/products%2Famiri-skel-top-low-orange.jpg?alt=media&token=d38a94fd-aab2-479e-858d-24d2910ccb5a","VANS")
+//        val empId3 = dbRef.push().key!!
+//        val employee3 = Product(empId, "VANS FEAR OF GOD NAM, NỮ", "", "500,000đ"
+//            ,"https://firebasestorage.googleapis.com/v0/b/lasttermdemo2.appspot.com/o/products%2Fvans-fear-of-god-nam-nu.jpg?alt=media&token=21641399-91d9-49cf-bdaf-22a004558f21","VANS")
+//
+//        dbRef.child(empId).setValue(employee)
+//        dbRef.child(empId3).setValue(employee3)
+//        dbRef.child(empId2).setValue(employee2)
+//
+//        Toast.makeText(this,"Ok", Toast.LENGTH_SHORT).show()
 
         introSliderViewPaper.adapter = introSliderAdapter
         setupIndicators()

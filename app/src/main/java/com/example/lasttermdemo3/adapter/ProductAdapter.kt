@@ -4,7 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.lasttermdemo3.Model.Product
+import com.example.lasttermdemo3.R
 import com.example.lasttermdemo3.databinding.ProductItemsBinding
 
 class ProductAdapter(val context: Context, val list: ArrayList<Product>): RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
@@ -30,8 +32,8 @@ class ProductAdapter(val context: Context, val list: ArrayList<Product>): Recycl
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.txtNameProduct.text = list[position].prdName
-        holder.binding.txtPrice.text = list[position].prdPrice
-        holder.binding.txtDecription.text = list[position].prdDescrip
+        holder.binding.txtPrice.text = list[position].prdPrice +"đ"
+        Glide.with(context).load(list[position].prdImage).placeholder(R.drawable.man).into(holder.binding.image)
     }
 
     override fun getItemCount(): Int {

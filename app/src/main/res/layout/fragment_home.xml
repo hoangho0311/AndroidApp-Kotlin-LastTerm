@@ -8,79 +8,22 @@
     android:focusableInTouchMode="true"
     tools:context=".Fragment.HomeFragment">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:padding="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/search_view_current_location"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/gray_square_rounded_shape_bg"
-                android:drawableLeft="@drawable/ic_round_search"
-                android:drawablePadding="8dp"
-                android:hint="Search"
-                android:inputType="text"
-                android:maxLines="1"
-                android:paddingLeft="16dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/color_gray"
-                android:textSize="16dp"
-                app:layout_constraintEnd_toStartOf="@+id/image_add"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/image_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/image_add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/image_add"
-                app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
-                app:tint="#8E8E8E" />
-
-            <ImageView
-                android:id="@+id/image_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/search_view_current_location"
-                app:layout_constraintEnd_toStartOf="@+id/image_message"
-                app:layout_constraintTop_toTopOf="@+id/search_view_current_location"
-                app:srcCompat="@drawable/ic_round_add"
-                app:tint="#8E8E8E" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/Tab_Layout"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nestedScrollView2"
+        app:layout_constraintTop_toTopOf="parent"
         app:tabIndicator="@drawable/tab_indicator"
         app:tabIndicatorAnimationMode="elastic"
         app:tabIndicatorColor="@null"
         app:tabIndicatorGravity="stretch"
         app:tabMode="fixed"
+        app:tabPadding="8dp"
         app:tabSelectedTextColor="@color/white" />
 
     <androidx.viewpager2.widget.ViewPager2

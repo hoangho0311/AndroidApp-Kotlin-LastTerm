@@ -1,26 +1,20 @@
 package com.example.lasttermdemo3.Fragment
 
-import android.content.Intent
+import android.R
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.lastterm.adapter.ProductAdapter
 import com.example.lasttermdemo3.Model.Product
-import com.example.lasttermdemo3.ProductDetails.ProductDetailActivity
 import com.example.lasttermdemo3.adapter.ViewPaperAdapter
 import com.example.lasttermdemo3.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+
 
 class HomeFragment : Fragment() {
 
@@ -28,19 +22,27 @@ class HomeFragment : Fragment() {
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager2: ViewPager2
     private lateinit var adapter:ViewPaperAdapter
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+
+
+
         // Inflate the layout for this fragment
         tabLayout = binding.TabLayout
         viewPager2 = binding.Viewpaper
 
         adapter = ViewPaperAdapter(childFragmentManager, lifecycle)
 
-        tabLayout.addTab(tabLayout.newTab().setText("All"))
+        tabLayout.addTab(tabLayout.newTab().setText("ALL"))
         tabLayout.addTab(tabLayout.newTab().setText("Nike"))
+        tabLayout.addTab(tabLayout.newTab().setText("ADIDAS"))
+        tabLayout.addTab(tabLayout.newTab().setText("VANS"))
+        tabLayout.addTab(tabLayout.newTab().setText("JORDAN"))
 
         viewPager2.adapter=adapter
 
