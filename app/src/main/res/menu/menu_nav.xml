@@ -6,22 +6,22 @@
         android:id="@+id/homeFragment"
         android:title="HOME"
         android:icon="@drawable/ic_baseline_home_24"
-        app:cnb_iconColor="#2196F3"/>
+        app:cnb_iconColor="#FFFFFF"/>
     <item
         android:id="@+id/favouriteFragment"
         android:title="SEARCH"
         android:icon="@drawable/ic_baseline_search_24"
-        app:cnb_iconColor="#2196F3"/>
+        app:cnb_iconColor="#FFFFFF"/>
     <item
         android:id="@+id/cartFragment"
         android:title="MY CART"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
-        app:cnb_iconColor="#2196F3"/>
+        app:cnb_iconColor="#FFFFFF"/>
 
     <item
         android:id="@+id/profileFragment"
         android:title="PROFILE"
         android:icon="@drawable/ic_baseline_person_24"
-        app:cnb_iconColor="#2196F3"/>
+        app:cnb_iconColor="#FFFFFF"/>
 
 </menu>

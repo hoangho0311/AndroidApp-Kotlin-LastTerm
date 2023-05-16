@@ -6,18 +6,12 @@ import android.os.Bundle
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
 import com.example.lasttermdemo3.Login.LoginActivity
-import com.example.lasttermdemo3.Login.LoginPhoneActivity
-import com.example.lasttermdemo3.Login.SignUpActivity
-import com.example.lasttermdemo3.MainActivity
-import com.example.lasttermdemo3.Model.Product
 import com.example.lasttermdemo3.R
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_intro.*
 
 class introActivity : AppCompatActivity() {

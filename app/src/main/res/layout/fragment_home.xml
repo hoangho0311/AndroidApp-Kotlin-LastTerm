@@ -8,13 +8,13 @@
     android:focusableInTouchMode="true"
     tools:context=".Fragment.HomeFragment">
 
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/Tab_Layout"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,6 +25,7 @@
         app:tabMode="fixed"
         app:tabPadding="8dp"
         app:tabSelectedTextColor="@color/white" />
+
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/Viewpaper"
